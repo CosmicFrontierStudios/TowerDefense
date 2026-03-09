@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://3fmgcnuoo3oa"]
+
+[ext_resource type="PackedScene" uid="uid://ycideuh3jr6k" path="res://models/GLB format/character-soldier.glb" id="1_tt7e2"]
+[ext_resource type="Script" uid="uid://dwrucvhc34s64" path="res://enemy.gd" id="2_s7bn3"]
+
+[node name="character-soldier2" unique_id=157011466 instance=ExtResource("1_tt7e2")]
+script = ExtResource("2_s7bn3")
+
+[node name="Skeleton3D" parent="character-soldier" parent_id_path=PackedInt32Array(737480802) index="0" unique_id=58215926]
+bones/4/rotation = Quaternion(0, 0, -0.38268346, 0.9238795)
+bones/5/rotation = Quaternion(0, 0, 0.3826835, 0.92387956)
+
+[node name="Timer" type="Timer" parent="." index="2" unique_id=795167032]

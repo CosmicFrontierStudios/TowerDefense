@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://ticqm3fnw6op"]
+
+[ext_resource type="PackedScene" uid="uid://dk68my52y7kr7" path="res://Scenes/Spawner.tscn" id="1_jjgbg"]
+
+[sub_resource type="Sky" id="Sky_jjgbg"]
+
+[sub_resource type="Environment" id="Environment_bo1nx"]
+background_mode = 2
+background_energy_multiplier = 3.07
+sky = SubResource("Sky_jjgbg")
+sky_custom_fov = 76.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo1nx"]
+albedo_color = Color(0, 0.5568628, 0.047058824, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_8gbba"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.492098, 0.057767034, 11.082615, 0, 0, 0, 0, 0, 0, -6.3899865, 0.032683194, 10.402069, 0, 0, 0, 0, 0, 0, -6.6303787, 0.0077614784, 6.770239, 0, 0, 0, 0, 0, 0, 5.979245, 0.11373472, 6.4792686, 0, 0, 0, 0, 0, 0, 6.4147897, 0.034169912, 3.0449662, 0, 0, 0, 0, 0, 0, -6.1394534, 0.11463213, 3.0525432, 0, 0, 0, 0, 0, 0, -5.6967273, 0.09644961, 0.38390923, 0, 0, 0, 0, 0, 0, 6.952463, 0.12658769, 0.23704, 0, 0, 0, 0, 0, 0, 6.91107, 0.25280762, -3.4613228, 0, 0, 0, 0, 0, 0, -4.7953506, 0.054069757, -2.6163487, 0, 0, 0, 0, 0, 0, -5.206374, 0.041219592, -8.52355, 0, 0, 0, 0, 0, 0, -3.427166, 0.07048762, -12.62546),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 12
+
+[node name="Main" type="Node3D" unique_id=1380119640]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1343668364]
+environment = SubResource("Environment_bo1nx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=283420981]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 19.927261, -26.04941)
+light_energy = 2.729
+light_indirect_energy = 4.405
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1012886581]
+transform = Transform3D(-1.1313338e-08, -0.9659259, 0.25881904, -4.222196e-08, 0.25881904, 0.9659259, -1, -1.7763568e-15, -4.3711392e-08, 3.3604054, 8.362783, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=580581858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.093125224, 0)
+use_collision = true
+size = Vector3(15, 0.2, 25)
+material = SubResource("StandardMaterial3D_bo1nx")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1570709310]
+curve = SubResource("Curve3D_8gbba")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1488667949]
+transform = Transform3D(0.052754235, -0.0019414333, 0.9985842, 1.1641284e-10, 0.9998273, 0.0019444311, -0.99858606, -0.00010256373, 0.052754138, 6.492098, 0.057767034, 11.082615)
+
+[node name="Node3D" parent="." unique_id=1618859552 instance=ExtResource("1_jjgbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.717233, 0.4336447, 11.076568)
